@@ -1,0 +1,16 @@
+1. Fazer o script de criação das tabelas
+2. Popular as tabelas (disponível do github). Os inserts serão fornecidos, porém deixei propositalmente alguns erros. A ideia é familariza-los com alguns erros que podem acontecer durante o desenvolvimento.
+3. Inserir um cliente com o seu próprio nome
+4. Inserir um funcionário com o nome de um amigo
+5. Fazer uma query para retornar apenas os clientes que têm 3 pedidos ou mais
+6. Atualizar o campo CREDIT_LIMIT em 20% apenas para os clientes com mais de 3 pedidos
+7. Alguns clientes têm em seus nomes a seguinte sequência de caracteres: ' * '. Atualizar o nome deles
+substituindo o * por &
+8. A tabela ORDERS possui um campo chamado STATUS. Altera-lo para que seja adicionada uma constraint do tipo check
+que permita apenas os valores: 'Shipped', 'Pending', 'Canceled'. obs.: os registros foram incluídos no banco com camel-case. Após a criação da constraint os novos registros deverão ser incluídos com as letras maiúsculas (ex.: 'SHIPPED', 'PENDING', 'CANCELED').
+DICA: vai acontecer um erro ao criar a constraint. Antes de criar a constraint, que tal considerar a função UPPER?
+9. Criar uma consulta que retorne apenas os produtos com a palavra 'asus' em seu nome
+10. Criar uma consulta que mostre a arrecadação total por pedido e ordene os resultados de forma decrescente
+11. Com apenas UM comando, criar uma tabela com os produtos dos pedidos que tiveram uma arrecadação acima da média do período
+12. Criar uma consulta que retorne todos os funcionários. Porém, os funcionários que tiverem o campo 'MANAGE_ID' igual a NULL deve exibir um hífen em vez de NULL.
+13. Aumente 5% o preço (LIST_PRICE) do produto mais pedido

@@ -1,0 +1,43 @@
+1. Faça uma query que mostre quantos pedidos foram feitos por mês em cada ano. Devem ser retornados apenas registros que tiveram
+mais de um pedido no mês (> 1). Além disso, a query deve ser ordenada por ano e depois por mês de forma crescente.
+	Ex.: 	10/2015 - 10 pedidos
+		11/2015 - 7 pedidos
+		10/2016 - 3 pedidos
+
+2. O exercício consiste em 4 etapas, a saber:
+	- Criar uma tabela chamada JOBTITLES com os seguintes campos
+		- JOBTITLE_ID (primary key number autoincrement)
+		- TITLE_NAME VA2(50) constraint UNIQUE
+	- Fazer o comando alter table na tabela EMPLOYEES para adicionar o campo JOBTITLE_ID como uma FK.
+		
+	- Criar uma procedure que inclua dados na tabela JOBTITLES a partir dos valores da coluna JOB_TITLES da tabela EMPLOYEES. 
+	Além disso, a procedure deve manter o relacionamento entre o empregado (EMPLOYEES) e o título do cargo (JOBTITLES) via FK
+
+	- Finalmente, criar o comando alter table para alterar a tabela JOBTITLES para remover a coluna JOB_TITLES.
+
+3. Criar uma tabela chamado PRICE_HISTORY com os seguintes campos:
+	- um identificador de chave primária
+	- código do produto
+	- preço unitário
+	- data
+
+Após criar a tabela, criar uma procedure que:
+	- receba como parâmetro:
+		- ano
+		- mês
+		- percentual
+	- altere o campo UNIT_PRICE da tabela ORDER_ITEMS para um valor aleatório a ser gerado pela função 
+	dbms_random.value(range_inicial,range_final). A procedure deve alterar o UNIT_PRICE de todos os pedidos do ano e mês informados
+	como parâmetro. O valor gerado aleatoriamente deve respeitar o percentual passado como parâmetro. Ou seja, deve ser gerado um
+	valor aleatório variando x%, para mais ou para menos. Ex.:
+		UNIT_PRICE atual: 1000.00
+		PERCENTUAL INFORMADO COMO PARÂMETRO: 10
+		RANGE INICIAL: 900 (1000 - (1000 * 10%))
+		RANGE FINAL: 1100 (1000 + (1000 * 10%))
+	- Por fim, a procedure deve alimentar a tabela PRICE_HISTORY com o histórico de preço do produto.
+4. Crie uma função que retorne o UNIT_PRICE mais recente de um determinado produto. Ou seja, o UNIT_PRICE usado para o produto 
+no pedido mais recente.
+
+5. Criar uma função que receba como parâmetro o código de um produto e calcule a média histórica do UNIT_PRICE.
+
+6. Criar uma função que receba como parâmetro a data inicial e a data final e retorne o valor médio dos pedidos do período informado.

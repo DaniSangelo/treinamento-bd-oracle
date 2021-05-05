@@ -1,0 +1,37 @@
+DESAFIO:
+
+Para fazer este exercício utilize o script "3.Pratica_3_SCRIPT.sql". O objetivo de utilizarmos outra estrutura de tabelas, diferente daquela vista durante os treinamentos, é para que possamos trabalhar a mudança de contexto.
+
+1. Criar uma PROCEDURE para preencher o campo QTCARGAHORARIA da tabela CURSOS. Somente devem ser preenchidos os cursos cujo campo QTCARGAHORARIA esteja NULL. 
+O campo QTCARGAHORARIA só recebe valores inteiros maiores que 20 e menores que 80. Além disso, um trigger deverá ser criadO para registrar quaisquer alterações que ocorram no campo QTCARGAHORARIA. O
+trigger deverá retornar uma mensagem de erro (raise_application_error) caso valores menores que 20 e maiores que 80 estejam sendo inseridos no campo. 
+Ou seja, qualquer modificação no campo QTCARGAHORARIA deverá ser registrada pelo trigger e as modificações devem ser armazenadas numa tabela chamada LOG_ALTER_CURSOS que deverá 
+conter os seguintes campos:
+
+	CÓDIGO DO CURSO
+	NOME DO CURSO
+	CARGA HORÁRIA ANTERIOR (ou seja, qual o valor antes da modificação)
+	CARGA HORÁRIA POSTERIOR (ou seja, qual o valor depois da modificação)
+	DATA E HORA DA OPERAÇÃO 
+	TIPO DE OPERAÇÃO (se foi insert, update ou delete)
+	
+	
+DICA: para gerar os valores inteiros utilize: TRUNC(DBMS_RANDOM.VALUE(valor_inicial,valor_final))
+
+Passo a passo:
+	1. criar a trigger
+	2. criar uma procedure pra atualizar somente os campos null (qtcargahoraria)
+	3. Executar procedure
+	3. criar alguns comandos update, insert e delete na tabela cursos
+	4. select na tabela LOG_ALTER_CURSOS
+
+Para fazer o exercício dois utilize o banco de vendas
+
+2. Criar uma função pipelined todos os funcionários com seus respectivos gerentes, ou seja, serão listados os gerentes e, logo abaixo do gerente, quem são seus liderados. A saída será algo parecido com:
+	CARGO		|EMPLOYEE_ID	|FIRST_NAME	|JOB_TITLE
+	Gerente		|100		|Luke Skywalker	|Gerente de vendas
+	Employee	|110		|XPTO		|-	
+	Gerente		|200		|Leia Skywalker	|Gerente de Operações
+	Employee	|210		|R2D2		|-
+
+OBS.: Isso poderia ser feito numa única consulta. Entretanto, por falta de criatividade do instrutor, elaborei esse exemplo para que vocês possam praticar a criação de uma função pipelined e familiarizarem-se com a sintaxe. Utilizem os conceitos de pipelined que vimos durante a aula.
